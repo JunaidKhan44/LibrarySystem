@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+@model List<LibrarySystem.Models.Member>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>search</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+       <b>Type</b>@Html.DropDownList("typedd",new List<SelectListItem>{new SelectListItem{Text="Student",Value="Student"}, new SelectListItem{Text="Teacher",Value="Teacher"},new SelectListItem{Text="Admin",Value="admin"}},"Select")
+     <fieldset>
+            <legend>Gender</legend>
+            @Html.RadioButton("genderrb","M")<b>Male</b>
+            @Html.RadioButton("genderrb","F")<b>Female</b>
+        </fieldset>
+    <input type="submit" name="submit" />
+    }
+     <h1 align="center">List of Member</h1>
+    <table border="1">
+        <tr>
+           <th>
+               Member Id
+           </th>
+             <th>
+               Member First Name
+           </th>
+            <th>
+               Member Last Name
+           </th>
+            <th>
+               Member Gender
+           </th>
+             <th>
+               Member Type
+           </th>
+             <th>
+               Member Pakistani
+           </th>
+             <th>
+               Member Email
+           </th>
+        </tr>
+        @if(IsPost)
+        {
+
+        foreach (var i in Model)
+        {    
+            <tr>
+                <td>
+            @i.M_ID
+        </td><td>
+            @i.F_NAME
+            </td><td>
+            @i.L_NAME
+           </td><td>
+            @i.GENDER
+            </td><td>
+            @i.TYPE
+          </td><td>
+            @i.PAKISTANI
+          </td><td>
+            @i.EMAIL
+            </td>
+                </tr>
+           }
+        }
+        </table>
+</body>
+</html>

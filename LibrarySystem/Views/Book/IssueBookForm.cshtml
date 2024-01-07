@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "IssueBookForm";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+    
+}
+<html>
+    <body>
+        @using (Html.BeginForm())
+        {
+            <b>Select Book</b>  @Html.DropDownList("ddl",(List<SelectListItem>)ViewBag.lst1) 
+            @Html.ActionLink("Select Member", "MemberIssueBook")
+
+            
+        }
+    </body>
+</html>

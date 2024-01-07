@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "MemberIssueBook";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+@model List<LibrarySystem.Controllers.BookController>
+<html>
+    <body>
+        <h1>Member List</h1>
+        @using (Html.BeginForm())
+        {
+            <b>Name Of Member</b>@Html.TextBox("txtn")   <input type="submit" name="Search" />
+            <table>
+            @if(IsPost)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>item.mid</td>
+                        <td>item.name</td>
+                        <td>item.type</td>
+                        <td>item.link</td>
+                    </tr>
+                }
+                
+            }
+       </table>
+        }
+    </body>
+</html>

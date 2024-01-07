@@ -1,0 +1,47 @@
+﻿@model LibrarySystem.Models.Book
+
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+<h2>create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Book</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.author)
+            @Html.ValidationMessageFor(model => model.author)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nop)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nop)
+            @Html.ValidationMessageFor(model => model.Nop)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "ShowBook")
+</div>

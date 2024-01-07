@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Images</title>
+</head>
+<body>
+ <h2>Image Test</h2>   
+    @using (Html.BeginForm("Images", "ImageTest", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <b>User</b>@Html.TextBox("Usertb")
+        <br />
+        <b>Choose Image</b><input type="file" name="postedFile" />
+        <br/>
+
+        <input type="submit" value="submit" />
+    }
+</body>
+</html>

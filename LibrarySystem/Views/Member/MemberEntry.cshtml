@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+@model LibrarySystem.Models.Member
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MemberEntry</title>
+</head>
+<body>
+    <h1 align="center">Member Entry Form</h1>
+    @using (Html.BeginForm())
+    { 
+        <table>
+            <tr>
+                <td>
+            <b>@Html.LabelFor(model=>model.F_NAME) </b>
+                </td>
+                <td>
+                    @Html.EditorFor(model=>model.F_NAME)
+                </td>
+           </tr>
+            <tr>
+                <td>
+     <b>Last Name </b></td>
+                <td>@Html.EditorFor(model=>model.L_NAME)</td>
+                </tr>
+            <tr>
+                <td>
+        <fieldset>
+            <legend>Gender</legend>
+            @Html.RadioButtonFor(model=>model.GENDER,"M")<b>Male</b>
+            @Html.RadioButtonFor(model=>model.GENDER,"F")<b>Female</b>
+        </fieldset>
+                    </td>
+                </tr>
+        <tr>
+       <td> <b>Type </b></td><td>@Html.DropDownListFor(model=>model.TYPE,new SelectList(Enum.GetValues(typeof(type))),"Select")</td></tr>
+            <tr>
+                <td>
+        <b>Email</b>
+                </td>
+                <td>@Html.TextBoxFor(model=>model.EMAIL)</td>
+
+            </tr>
+            <tr>
+                <td>
+        <b>Password </b>
+
+                </td>
+                <td>@Html.PasswordFor(model=>model.PASSWORD)</td>
+
+            </tr>
+            <tr>
+                <td>
+        @Html.CheckBoxFor(model=>model.PAKISTANI)<b>Pakistan?</b>
+                    </td>
+                </tr>
+            </table>
+        <input type="submit" name="Submit"/>
+        
+    }
+    <b>Your id is---</b>@Html.DisplayFor(model=>model.M_ID)
+</body>
+</html>

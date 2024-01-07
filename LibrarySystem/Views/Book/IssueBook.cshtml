@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "IssueBook";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+<h2>IssueBook</h2>
+<html>
+<body>
+                     @using (Html.BeginForm())
+                      {
+                            <b>Enter Registration No</b>@Html.TextBox("txts")
+
+                              <input type="submit" value="Search" name="bnts"/>
+                         
+                         <br />
+                            <b>Name Of Student:--</b>@ViewBag.n
+                            <br />
+                          <b>Type Of Student:--</b>@ViewBag.t
+                         <br/>
+                            <b>Select Book</b><input type="submit" value="Book" name="bnts" />
+                         @Html.DropDownList("ddl",(List<SelectListItem>)ViewBag.lst1) 
+                           
+                         <br/>
+                           <b>Issue Date</b>@Html.TextBox("txti")
+                         <br/>
+                            <b>Return Date</b>@Html.TextBox("txtr")
+                         <br/>
+                        <input type="submit" value="Save" name="bnts"/>
+                      }
+</body>
+</html>

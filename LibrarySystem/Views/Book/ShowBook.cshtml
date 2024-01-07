@@ -1,0 +1,62 @@
+﻿@model IEnumerable<LibrarySystem.Models.Book>
+
+@{
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowBook</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>    
+            <th>
+                @Html.DisplayNameFor(model => model.B_id)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nop)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.B_id)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nop)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id1=item.B_id }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.B_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
